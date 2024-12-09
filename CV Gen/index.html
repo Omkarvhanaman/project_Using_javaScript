@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Genreter</title>
+</head>
+<body>
+    
+<div class="container" id="Cv-form">
+        <h2 class="text-center my-3">Resume Generator</h2>
+        <p class="text-center"></p>
+        <small id="emailHelp" class="form-text text-muted text-center">By Learn with Omkar.</small>
+    <div class="row">
+
+        <div class="col-md-6">
+            <h3>Personal Information</h3>
+           
+               <div class="form-group">
+                 <label for="name">Your Name</label>
+                 <input type="text" class="form-control" id="name" aria-describedby="Name">          
+               </div>
+               <div class="form-group">
+                  <label for="contact">Your Contact Number</label>
+                  <input type="text" class="form-control" id="contact" aria-describedby="contact">          
+                </div>
+                <div class="form-group">
+                   <label for="address">Your address</label>
+                   <textarea type="text" class="form-control" id="address" aria-describedby="address"> </textarea>         
+                </div>
+                <div class="form-group">
+                    <label for="address">Your photos</label>
+                    <input type="file" class="form-control" id="pic" aria-describedby="address"> </input>         
+                 </div>
+
+                <small class="form-text text-muted text-center">Important Link</small>
+
+                <div class="form-group">
+                    <label for="fb">Email_ID</label>
+                    <input type="text" class="form-control" id="mail" aria-describedby="Name">          
+                </div>
+                <div class="form-group">
+                    <label for="In">HackerRank_Id</label>
+                    <input type="text" class="form-control" id="HR" aria-describedby="Name">          
+                </div>
+                <div class="form-group">
+                    <label for="Ld">GitHub_Id</label>
+                    <input type="text" class="form-control" id="GH" aria-describedby="Name">          
+                </div> 
+                <div class="form-group">
+                    <label for="Ld">Linkdine_Id</label>
+                    <input type="text" class="form-control" id="LD" aria-describedby="Name">          
+                </div>   
+                <div class="form-group" id="Language" >
+                    <label for="Language"> Select Your Language</label><br>
+                    <input type="checkbox" id="Language1" name="Language1" value="Marathi">
+                    <label for="Language1">Marathi</label>
+                    <input type="checkbox" id="Language2" name="Language2" value="Hindi">
+                    <label for="Language2">Hindi</label>
+                    <input type="checkbox" id="Language3" name="Language3" value="English">
+                    <label for="Language3"> English</label>
+                </div>                      
+        </div>
+
+        <div class="col-md-6">
+            <h3>Porfessional Information</h3>
+        
+                <div class="form-group">
+                    <label for="address">Objective</label>
+                    <textarea type="text" class="form-control" id="obj" aria-describedby="address"> </textarea>         
+                </div>
+                <div class="form-group"  id="wE_field">
+                    <label for="wE_field">Work Experience / Project</label>
+                    <textarea type="text" class="form-control wEfield" aria-describedby="address"> </textarea>         
+                   
+                   
+                    <div class="container text-center" id="WE">
+                       <button  class="btn btn-primary btm-sm mt-3" onclick="addWefield()">Add</button>
+                       <button id="delete" class="btn btn-primary btm-sm mt-3" onclick="DeleteWefield()">Delete</button>
+                    </div>
+                </div>
+
+                <div class="form-group" id="AQ_field">
+                    <label for="AQ_field">Academic Qualification</label>
+                    <textarea type="text" class="form-control aQ"  aria-describedby="address"> </textarea>         
+                   
+                   
+                    <div class="container text-center" id="AQ">
+                       <button  class="btn btn-primary btm-sm mt-3" onclick="addAqfield()">Add</button>
+                       <button id="delete" class="btn btn-primary btm-sm mt-3" onclick="DeleteAqfield()">Delete</button>
+                    </div>
+                </div> 
+                <div class="form-group" id="Skill_field">
+                        <label for="skil">Skills</label>
+                        <input type="text" class="form-control Sk" aria-describedby="Name">         
+                   
+                   
+                    <div class="container text-center" id="skillbtn">
+                       <button  class="btn btn-primary btm-sm mt-3" onclick="addskillfield()">Add</button>
+                       <button id="delete" class="btn btn-primary btm-sm mt-3" onclick="Deleteskillfield()">Delete</button>
+                    </div>
+                </div> 
+                <div class="form-group" id="project_field">
+                    <label for="skil">Add Your Project</label>
+                    <textarea type="text" class="form-control p_f" aria-describedby="Name">  </textarea>        
+               
+               
+                <div class="container text-center" id="projectbtn">
+                   <button  class="btn btn-primary btm-sm mt-3" onclick="addProjectfield()">Add</button>
+                   <button id="delete" class="btn btn-primary btm-sm mt-3" onclick="DeleteProjectfield()">Delete</button>
+                </div>
+            </div>              
+          
+        </div>
+        <div class="container text-center">
+            <button onclick="CV_Generete()" class="btn btn-primary btm-sm mt-3">CV Generete</button>
+        </div>
+    </div>
+</div>
+<br>
+<!--CV templet-->
+<div class="container" id="CV-temp">
+    <!--Start-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 div1">
+                <div class="text-center mt-3">
+                    <img src="./pic1.jpg" alt="default" class="img-fluid mypic" id="picT">
+                </div>               
+                <div class="container mt-2">
+                    <h5 id="nameT" class="text-center" >Omkar Arjun Vhanamani</h5>
+                    <i class="fa fa-birthday-cake"> </i>
+                    <small>14 spet 1992</small><br>
+                    <i class="fa fa-phone"> </i>
+                    <small id="contactT">+91 9922578618</small><br>
+                    <i class="fa fa-envelope-open"> </i>
+                    <a href="#1" id="mailT">Email_ID</a><br>
+                    <span class="fa fa-home" > </span>
+                    <small id="addressT"> Dr.colouny , manuk bag pin-416502</small>
+                    <hr>
+                    <div class="container">
+                        <div class="row">                                  
+                            <div class="col"> 
+                                <h5 class="text-center ">Important Link</h5>                             
+                                <a href="#2" id="HRT">HackerRank_Id</a><br> 
+                                <label for="LdT">HackerRank_Id</label><br> 
+                                
+                                <a href="#3" id="GHT">GitHub_Id</a><br>
+                                <label for="LdT">GitHub_Id</label><br>
+                                
+                                <a href="#4" id="LDT">Linkdine_Id</a><br>
+                                <label for="LdT">Linkdine_Id</label> <br>                           
+                            </div>                                                     
+                        </div> 
+                        <hr>
+                        <div class="row-md-2">
+                            <!--Skills-->
+                            <div>
+                                <div>
+                                    <h5 class="text-center">Skills</h5>
+                                </div>
+                                <div>
+                                   <ul id="skillT">
+                                     <li>Munual Testing </li>
+                                     <li>automation Testing </li>
+                                     <li>javascript</li>
+                                   </ul>
+                                </div>
+                            </div> 
+                            <hr>
+                            <!--Language-->
+                            <div>
+                                <div>
+                                    <h5 class="text-center">Language</h5>
+                                </div>
+                                <div class="col"  >
+                                   <p id="LanguageT"></p>
+                                </div>
+                            </div> 
+                        </div>                      
+                    </div>                   
+                </div>
+            </div>
+            <div class="col-md-9 div2">
+              <!--objective-->
+              <div class="card mt-3">
+                  <div class="card-heder div1">
+                    <h3>Objective</h3>
+                  </div>
+                  <div class="card-body">
+                        <p id="objT">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Molestiae eum numquam quas fugit? Tempora doloribus vero reiciendis, 
+                         fuga placeat inventore quo adipisci? Eaque quis nisi sequi quibusdam hic animi consectetur?
+                        </p>
+                  </div>
+               </div>
+                <!--Work Experience-->
+                <div class="card mt-2">
+                   <div class="card-heder div1">
+                       <h4>Work Experience</h4>
+                   </div>
+                   <div class="card-body">
+                      <ul id="wET">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                      </ul>
+                   </div>
+                </div>
+                <!--project-->
+                <div class="card mt-2">
+                    <div class="card-heder div1">
+                        <h4>Project</h4>
+                    </div>
+                    <div class="card-body">
+                       <ul id="proT">
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                       </ul>
+                    </div>
+                </div>
+                <!--Academic Qualification-->
+                <div class="card mt-2">
+                    <div class="card-heder div1">
+                        <h4>Academic Qualification</h4>
+                    </div>
+                    <div class="card-body">
+                       <ul id="aQT">
+                          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,.</li>
+                       </ul>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+    <!--end-->
+    <div class="container text-center">
+        <button onclick="CV_print()" class="btn btn-primary btm-sm mt-3">Print</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--JS-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" 
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+ crossorigin="anonymous"></script>
+ 
+ <script src="./CV.js"></script>
+</body>
+</html>
